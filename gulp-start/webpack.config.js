@@ -1,14 +1,14 @@
 const isProduction = process.env.NODE_ENV === "production";
 
-const config ={
-    mode: isProduction ? "production" : "development",
-entry:{
-    app:"./app/common/scripts/app.js"
-},
-output: {
-    filename:"[name].min.js"
-},
-devtool: isProduction ? false : "source-map",
+const config = {
+	mode: isProduction ? "production" : "development",
+	entry: {
+		app: "./app/common/scripts/app.js"
+	},
+	output: {
+		filename: "[name].min.js"
+	},
+	devtool: isProduction ? false : "source-map",
 	module: {
 		rules: [
 			{
@@ -23,7 +23,6 @@ devtool: isProduction ? false : "source-map",
 			}
 		]
 	}
-
 };
 
-exports.module=config;
+module.exports = config;

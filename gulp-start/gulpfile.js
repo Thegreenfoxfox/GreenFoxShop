@@ -10,7 +10,7 @@ const pug =require("gulp-pug");
 // js (scripts)
 const webpack = require("webpack");
 const gulpWebpack = require("webpack-stream");
-const webpackConfig = require(".webpack.config");
+const webpackConfig = require("./webpack.config");
 // scss task
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
@@ -40,7 +40,7 @@ gulp.task("templates", () => {
 
 gulp.task("styles", () => {
 	return gulp
-		.src(`${PATHS.app}/common/styles/**/*.scss`, {
+		.src(`${PATHS.app}/common/styles/app.scss`, {
 			since: gulp.lastRun("styles")
 		})
 		.pipe(plumber())
@@ -106,7 +106,7 @@ gulp.task(
 	"production",
 	gulp.series(
 		"clear",
-		gulp.parallel("templates", "styles", "scripts", "images")
+		gulp.parallel("templates", "styles", "scripts", "images","copy")
 	)
 );
 
